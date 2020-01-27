@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Message from './Message';
 import {PropTypes} from 'prop-types';
 
 class Form extends Component {
@@ -59,7 +58,6 @@ class Form extends Component {
       }
 
     render() {
-        const { isFormValid } = this.state;
         return (
             <div className="row">
             <h1 className="text-center">Form Validation</h1>
@@ -83,10 +81,13 @@ class Form extends Component {
                 <div className="small-6 small-centered text-center columns">
                     <a href="#" id="button" className="button success expand round text-center">Verify</a>
                 </div>
-                {/* <Message formIsValid={isFormValid} /> */}
             </form>
         </div>);
     }
 }
 
 export default Form;
+
+Form.propTypes = {
+    isFormValid: PropTypes.func.isRequired
+}
