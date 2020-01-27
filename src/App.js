@@ -7,7 +7,7 @@ class App extends Component {
     render() {
         return (<div>
             <Form></Form>
-            <Message></Message>
+            {/* <Message></Message> */}
         </div>);
     }
 }
