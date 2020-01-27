@@ -34,10 +34,10 @@ describe('Form Validation <App />', () => {
   it('check entire form validation when the form is valid', () => {
     let formSpy = spy();
     const form = mount(<Form isFormValid={formSpy} />);
-    form.find('#name').simulate('change', { target: { value: 'sasrank' } });
-    form.find('#email').simulate('change', { target: { value: 'aasdbc@xyz.com' } });
-    form.find('#phone').simulate('change', { target: { value: '9856756756' } });
-    form.find('#url').simulate('change', { target: { value: 'http://google.com' } });
+    form.find('.name').simulate('change', { target: { name:'name', value: 'sasrank' } });
+    form.find('#email').simulate('change', { target: { name:'email' ,value: 'aasdbc@xyz.com' } });
+    form.find('#phone').simulate('change', { target: { name:'phone', value: '9856756756' } });
+    form.find('#url').simulate('change', { target: { name:'url' , value: 'http://google.com' } });
     form.find('#button').simulate('click');
     expect(formSpy.calledWith(true)).toEqual(true);
   });

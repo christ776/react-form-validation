@@ -10,7 +10,6 @@ class Form extends Component {
             isNameValid: false,
             isPhoneValid: false,
             isUrlValid: false,
-            isFormValid: false
         };
     }
 
@@ -55,8 +54,8 @@ class Form extends Component {
 
       validateForm() {
         const { isEmailValid, isNameValid, isPhoneValid, isUrlValid  } = this.state;
-        const isFormValid = isEmailValid && isNameValid && isPhoneValid && isUrlValid;
-        this.setState({isFormValid: isFormValid});
+        const { isFormValid } = this.props;
+        isFormValid(isEmailValid && isNameValid && isPhoneValid && isUrlValid);
       }
 
     render() {
@@ -66,7 +65,7 @@ class Form extends Component {
             <h1 className="text-center">Form Validation</h1>
             <form onSubmit={this.handleSubmit} noValidate>
                 <h3>Name:
-                    <input type='text' id="name" name='name' onChange={this.handleUserInput} noValidate />
+                    <input type='text' id="name" name='name' className="name" onChange={this.handleUserInput} noValidate />
                 </h3>
                 <h3>Email:
                     <input type='email' id="email" name='email' onChange={this.handleUserInput} noValidate />
@@ -84,7 +83,7 @@ class Form extends Component {
                 <div className="small-6 small-centered text-center columns">
                     <a href="#" id="button" className="button success expand round text-center">Verify</a>
                 </div>
-                <Message formIsValid={isFormValid} />
+                {/* <Message formIsValid={isFormValid} /> */}
             </form>
         </div>);
     }
